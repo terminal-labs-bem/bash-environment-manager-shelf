@@ -1,7 +1,10 @@
-before_script:
-  - apt update
-  - apt install -y ruby-full
+image: verhulstm/circleci-ubuntu1804:0.0.5
 
-run-test:
+full-build:
   script:
-    - ruby --version
+    - sudo bash .gitlabci/mock_vagrant.sh
+    - sudo bash .gitlabci/download_python_environment_manager.sh
+    - cd /vagrant; sudo bash .tmp/python-environment-manager-master/makefile_resources/scripts_python/conda/install_apt_dependencies.sh app vagrant vagrant
+    - cd /vagrant; sudo bash .tmp/python-environment-manager-master/makefile_resources/scripts_python/conda/install_python.sh app vagrant vagrant
+    - cd /vagrant; sudo bash .tmp/python-environment-manager-master/makefile_resources/scripts_python/conda/install_app.sh app vagrant vagrant
+    - cd /vagrant; sudo bash .tmp/python-environment-manager-master/makefile_resources/scripts_python/conda/run_tests.sh app vagrant vagrant
