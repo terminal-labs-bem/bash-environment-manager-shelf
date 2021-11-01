@@ -16,8 +16,8 @@ def import_mod_from_fp(module_name, filepath):
     spec.loader.exec_module(module)
     return module
 
-_fw = import_mod_from_fp(os.path.dirname(__file__) + "/" + _lib)
-_local = import_mod_from_fp(_fw._find_local_file())
+_fw = import_mod_from_fp('fw_lib', os.path.dirname(__file__) + "/" + _lib)
+_local = import_mod_from_fp('local', _fw.find_local_file())
 
 config = configparser.ConfigParser()
 config.read(_fw.find_config_file())

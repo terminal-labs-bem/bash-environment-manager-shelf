@@ -1,7 +1,7 @@
-import pathlib
 import configparser
 from pathlib import Path
-from os.path import join, abspath, isfile, dirname
+from os.path import join, abspath, isfile, dirname, islink, isdir
+from os import walk, symlink, listdir
 
 config = configparser.ConfigParser()
 
@@ -13,13 +13,14 @@ _repo = "repo"
 _back = ".."
 _blank = ""
 _slash = "/"
-_path = str(pathlib.Path(__file__).parent.absolute())
+_path = str(Path(__file__).parent.absolute())
 
 def cwd():
     return join(dirname(__file__))
 
-def join(a, b):
-    return abspath(join(a, b))
+# I'm not sure what is wrong with the join you imported from os.path--it seems to do effectively the same thing?
+# def join(a, b):
+#     return abspath(join(a, b))
 
 def split(a):
     return a.split(_slash)
@@ -42,9 +43,9 @@ def get_pkg_dir():
 
 
 def find_file(name, path):
-    for root, dirs, files in os.walk(path):
+    for root, dirs, files in walk(path):
         if name in files:
-            return os.path.join(root, name)
+            return join(root, name)
 
 
 def find_src_dir():
@@ -93,7 +94,7 @@ def is_install_editable():
     else:
         return True
 
-def get_pgk_name():
+def get_pkg_name():
     config.read(find_config_file())
     NAME = config["metadata"]["name"]
     return NAME
@@ -101,8 +102,8 @@ def get_pgk_name():
 def setup_links(package_name):
     _link = package_link + _slash
     Path(_path + _slash + _link).mkdir(parents=True, exist_ok=True)
-    if not os.path.islink(_path + _slash + _link + package_name):
-        os.symlink(os.path.join(_path, _src), _path + _slash + _link + _slash + package_name)
+    if not islink(_path + _slash + _link + package_name):
+        symlink(join(_path, _src), _path + _slash + _link + _slash + package_name)
 
 def smart_reqs(repos, package_name):
     # styles = standalone, repo
@@ -115,7 +116,7 @@ def smart_reqs(repos, package_name):
                 return _repo
 
     if _get_deploy_style() == _repo:
-        local_repos = os.listdir(join(_path, _back))
+        local_repos = listdir(join(_path, _back))
         if _dsstore in local_repos:
             local_repos.remove(_dsstore)
         if package_name in local_repos:

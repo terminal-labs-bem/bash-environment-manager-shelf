@@ -12,7 +12,7 @@ def import_mod_from_fp(module_name, filepath):
     spec.loader.exec_module(module)
     return module
 
-_fw = import_mod_from_fp(os.path.dirname(__file__) + "/" + _lib)
+_fw = import_mod_from_fp('fw_lib', os.path.dirname(__file__) + "/" + _lib)
 
 _pgk_name = _fw.get_pgk_name()
 SITEPACKAGESPATH = _fw.import_fun(f"{_pgk_name}.framework.derived_settings", "SITEPACKAGESPATH")
