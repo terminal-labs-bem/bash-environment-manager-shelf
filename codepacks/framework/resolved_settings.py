@@ -1,16 +1,21 @@
 import os
+import importlib.util
 
 _lib = "lib.py"
 _egg = ".egg-link"
 _paylaod = "/payload"
 _conf = "/conf.cfg"
 
-with open(os.path.dirname(__file__) + "/" + _lib) as f:
-    code = compile(f.read(), _lib, "exec")
-    exec(code)
+def import_mod_from_fp(module_name, filepath):
+    spec = importlib.util.spec_from_file_location(module_name, filepath)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
 
-_pgk_name = _get_pgk_name()
-SITEPACKAGESPATH = _import_fun(f"{_pgk_name}.framework.derived_settings", "SITEPACKAGESPATH")
+_fw = import_mod_from_fp(os.path.dirname(__file__) + "/" + _lib)
+
+_pgk_name = _fw.get_pgk_name()
+SITEPACKAGESPATH = _fw.import_fun(f"{_pgk_name}.framework.derived_settings", "SITEPACKAGESPATH")
 
 def get_env_variable(name):
     assert isinstance(name, str) is True
