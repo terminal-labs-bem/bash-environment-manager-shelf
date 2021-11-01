@@ -1,7 +1,7 @@
 import configparser
 from pathlib import Path
-from os.path import join, abspath, isfile, dirname, islink, isdir
-from os import walk, symlink, listdir
+from os.path import abspath, isfile, dirname, islink, isdir
+from os import walk, symlink, listdir, path
 
 config = configparser.ConfigParser()
 
@@ -14,13 +14,13 @@ _back = ".."
 _blank = ""
 _slash = "/"
 _path = str(Path(__file__).parent.absolute())
+_src = ""
 
 def cwd():
-    return join(dirname(__file__))
+    return path.join(dirname(__file__))
 
-# I'm not sure what is wrong with the join you imported from os.path--it seems to do effectively the same thing?
-# def join(a, b):
-#     return abspath(join(a, b))
+def join(*args):
+    return abspath(path.join(*args))
 
 def split(a):
     return a.split(_slash)
