@@ -3,7 +3,7 @@ import site
 import tempfile
 
 with open(os.path.dirname(__file__) + "/lib.py") as f:
-    code = compile(f.read(), "loader.py", "exec")
+    code = compile(f.read(), "lib.py", "exec")
     exec(code)
 
 PACKAGENAME = _get_pgk_name()
