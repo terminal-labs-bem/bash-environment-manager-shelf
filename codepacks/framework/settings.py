@@ -10,14 +10,16 @@ _tests = "tests"
 _back = ".."
 _blank = ""
 
+
 def import_mod_from_fp(module_name, filepath):
     spec = importlib.util.spec_from_file_location(module_name, filepath)
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     return module
 
-_fw = import_mod_from_fp('fw_lib', os.path.dirname(__file__) + "/" + _lib)
-_local = import_mod_from_fp('local', _fw.find_local_file())
+
+_fw = import_mod_from_fp("fw_lib", os.path.dirname(__file__) + "/" + _lib)
+_local = import_mod_from_fp("local", _fw.find_local_file())
 
 config = configparser.ConfigParser()
 config.read(_fw.find_config_file())
@@ -62,5 +64,5 @@ VARS = {
     "SETUPFILEDIR": SETUPFILEDIR,
     "MEMTEMPDIR": MEMTEMPDIR,
     "SITEPACKAGESPATH": SITEPACKAGESPATH,
-    "CONFIG": config._sections
+    "CONFIG": config._sections,
 }

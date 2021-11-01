@@ -16,20 +16,26 @@ _slash = "/"
 _path = str(Path(__file__).parent.absolute())
 _src = ""
 
+
 def cwd():
     return path.join(dirname(__file__))
+
 
 def join(*args):
     return abspath(path.join(*args))
 
+
 def split(a):
     return a.split(_slash)
+
 
 def backout(path):
     return join(path, _back)
 
+
 def import_fun(mod, func):
     return getattr(__import__(mod, fromlist=[func]), func)
+
 
 def get_pkg_dir():
     currentpath = cwd()
@@ -57,7 +63,7 @@ def find_src_dir():
     for dir in currentpath:
         if dir == "src":
             build_new_path = True
-        if build_new_path == True:
+        if build_new_path:
             new_path.append(dir)
     new_path.reverse()
     return "/".join(new_path)
@@ -74,6 +80,7 @@ def find_config_file():
         candidate.reverse()
         if find_file("setup.cfg", "/".join(candidate)):
             return find_file("setup.cfg", "/".join(candidate))
+
 
 def find_local_file():
     currentpath = cwd()
@@ -94,10 +101,12 @@ def is_install_editable():
     else:
         return True
 
+
 def get_pkg_name():
     config.read(find_config_file())
     NAME = config["metadata"]["name"]
     return NAME
+
 
 def setup_links(package_name):
     _link = package_link + _slash
@@ -105,9 +114,10 @@ def setup_links(package_name):
     if not islink(_path + _slash + _link + package_name):
         symlink(join(_path, _src), _path + _slash + _link + _slash + package_name)
 
+
 def smart_reqs(repos, package_name):
     # styles = standalone, repo
-    currentpath = _path
+
     def _get_deploy_style():
         currentpath = _path
         for _ in range(len(split(currentpath))):

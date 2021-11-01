@@ -6,16 +6,19 @@ _egg = ".egg-link"
 _paylaod = "/payload"
 _conf = "/conf.cfg"
 
+
 def import_mod_from_fp(module_name, filepath):
     spec = importlib.util.spec_from_file_location(module_name, filepath)
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     return module
 
-_fw = import_mod_from_fp('fw_lib', os.path.dirname(__file__) + "/" + _lib)
+
+_fw = import_mod_from_fp("fw_lib", os.path.dirname(__file__) + "/" + _lib)
 
 _pgk_name = _fw.get_pgk_name()
 SITEPACKAGESPATH = _fw.import_fun(f"{_pgk_name}.framework.derived_settings", "SITEPACKAGESPATH")
+
 
 def get_env_variable(name):
     assert isinstance(name, str) is True
