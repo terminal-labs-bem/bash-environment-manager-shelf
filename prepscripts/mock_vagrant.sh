@@ -11,8 +11,8 @@ mkdir -p /home/vagrant
 chmod 777 -R /home/vagrant
 chown -R vagrant /home/vagrant
 
-mkdir -p /home/vagant/.ssh
-chmod 777 -R /home/vagant/.ssh
-chown -R vagrant /home/vagant/.ssh
+mkdir -p /home/vagrant/.ssh
+chmod 777 -R /home/vagrant/.ssh
+chown -R vagrant /home/vagrant/.ssh
 
 echo -e vagrant ALL=\(ALL\) NOPASSWD: ALL >> /etc/sudoers
