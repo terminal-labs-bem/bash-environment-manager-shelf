@@ -1,0 +1,3 @@
+{"workstation":
+	{"deplyment": None, "applocation": "[appdir]", "staginglocation": None, "bemhome": "[homedir]/.bem", "bemtmp": "[appdir]/.tmp", "storage": "[homedir]/.bem/[appname]/data", "tmp": "/tmp/[appname]"}, 
+}
