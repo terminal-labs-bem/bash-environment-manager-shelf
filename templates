@@ -2,5 +2,5 @@ psf
 psf, vagrant.psf
 psf, vagrant.psf, cloud.psf
 ##
-vagrant.infra, cloud.infra
-vagrant.adv, cloud.adv
+rr.infra, cloud.infra
+rr.adv, cloud.adv
