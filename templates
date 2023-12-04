@@ -1,4 +1,4 @@
 psf
 psf, vagrant.psf
-rr.infra
-rr.adv
+psf+rr.infra
+psf+rr.adv
