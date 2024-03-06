@@ -4,18 +4,18 @@ mkdir -p .tmp/storage/repo
 
 cd .tmp/storage/repo
 
-git clone git@github.com:terminal-labs-bem/kit_simple.git
-git clone git@github.com:terminal-labs-bem/kit_standard.git
-git clone git@github.com:terminal-labs-bem/factory_standard.git
+git clone git@github.com:terminal-labs-bem/lowkit.git
+git clone git@github.com:terminal-labs-bem/highkit.git
+git clone git@github.com:terminal-labs-bem/factory.git
 
-cd kit_simple
+cd lowkit
 sudo make venv.python
 cd ..
 
-cd kit_standard
+cd highkit
 sudo make venv.python
 cd ..
 
-cd factory_standard
+cd factory
 sudo make venv.python
 cd ..
