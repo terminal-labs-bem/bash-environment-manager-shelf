@@ -1,4 +1,4 @@
-apt-mark hold linux-image-generic linux-headers-generic 6.5.0-1016-azure
+apt-mark hold 6.5.0-1016-azure
 
 apt remove --purge dotnet-sdk-* -y
 apt remove --purge dotnet-runtime-* -y
