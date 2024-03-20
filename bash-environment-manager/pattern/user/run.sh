@@ -1,4 +1,6 @@
 export INSTALLUSER=$1
 source .tmp/_commonenv.sh
 
-echo "running"
+source /home/$INSTALLUSER/.tlcache/bem/$APPNAME/venv/bin/activate
+
+bash .tmp/bem/pattern/user/runners/run_version.sh $INSTALLUSER
