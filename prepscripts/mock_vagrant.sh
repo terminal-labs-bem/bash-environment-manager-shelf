@@ -1,3 +1,7 @@
+apt remove --purge dotnet-sdk-* -y
+apt remove --purge dotnet-runtime-* -y
+apt-get purge --auto-remove dotnet* -y
+
 adduser --disabled-password --gecos "" vagrant
 touch /home/vagrant/.bashrc
 usermod -aG sudo vagrant
