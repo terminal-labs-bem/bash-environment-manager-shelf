@@ -1,6 +1,4 @@
-DEBIAN_FRONTEND=noninteractive apt -y -o DPkg::options::="--force-confdef" -o DPkg::options::="--force-confold" update
-DEBIAN_FRONTEND=noninteractive apt -y -o DPkg::options::="--force-confdef" -o DPkg::options::="--force-confold" upgrade
-
+DEBIAN_FRONTEND=noninteractive
 
 apt -y install \
   git \
