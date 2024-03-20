@@ -10,6 +10,14 @@ apt-get purge --auto-remove ubuntu-advantage-tools -y
 apt remove firefox -y
 apt-get purge --auto-remove firefox -y
 
+apt remove apache2 -y
+apt remove apache2* -y
+apt-get purge --auto-remove apache2 -y
+
+apt remove vim -y
+apt remove vim* -y
+apt-get purge --auto-remove vim -y
+
 adduser --disabled-password --gecos "" vagrant
 touch /home/vagrant/.bashrc
 usermod -aG sudo vagrant
