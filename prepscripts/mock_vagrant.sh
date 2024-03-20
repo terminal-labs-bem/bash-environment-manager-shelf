@@ -18,6 +18,8 @@ apt remove podman vim vim-common vim-runtime vim-tiny  -y
 apt remove vim* -y
 apt-get purge --auto-remove vim -y
 
+apt-get purge --auto-remove 6.5.0-1016-azure -y
+
 apt-get purge --auto-remove linux-cloud-tools-common -y
 apt-get purge --auto-remove linux-tools-common -y
 
