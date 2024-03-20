@@ -3,7 +3,6 @@ apt remove --purge dotnet-runtime-* -y
 apt-get purge --auto-remove dotnet* -y
 
 apt-get purge --auto-remove ubuntu-advantage-tools -y
-apt-get purge --auto-remove ubuntu-pro-client-l10n -y
 
 adduser --disabled-password --gecos "" vagrant
 touch /home/vagrant/.bashrc
