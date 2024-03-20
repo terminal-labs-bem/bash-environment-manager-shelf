@@ -14,7 +14,7 @@ apt remove apache2 -y
 apt remove apache2* -y
 apt-get purge --auto-remove apache2 -y
 
-apt remove vim -y
+apt remove podman vim vim-common vim-runtime vim-tiny  -y
 apt remove vim* -y
 apt-get purge --auto-remove vim -y
 
