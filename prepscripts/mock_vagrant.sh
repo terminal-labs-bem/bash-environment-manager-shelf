@@ -20,9 +20,6 @@ apt remove podman vim vim-common vim-runtime vim-tiny  -y
 apt remove vim* -y
 apt-get purge --auto-remove vim -y
 
-apt-get purge --auto-remove linux-cloud-tools-common -y
-apt-get purge --auto-remove linux-tools-common -y
-
 adduser --disabled-password --gecos "" vagrant
 touch /home/vagrant/.bashrc
 usermod -aG sudo vagrant
