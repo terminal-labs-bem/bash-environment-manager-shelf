@@ -1,7 +1,7 @@
 export INSTALLUSER=$1
 source .tmp/_commonenv.sh
 
-FILE=/home/$INSTALLUSER/.tlcache/bem/$APPNAME/vars/hostaptdeps
+FILE=.repo/vars/noapt
 if [ ! -f "$FILE" ]; then
     bash .tmp/bem/common/hosts/raw/pre_deploy_deps.sh
     touch $FILE

@@ -5,7 +5,7 @@ mkdir -p /home/$INSTALLUSER/.tlcache/bem/$APPNAME
 mkdir -p /home/$INSTALLUSER/.tlcache/bem/$APPNAME/vars
 chown -R $INSTALLUSER $FILE /home/$INSTALLUSER/.tlcache
 
-FILE=/home/$INSTALLUSER/.tlcache/bem/$APPNAME/vars/patternaptdeps
+FILE=.repo/vars/noapt
 if [ ! -f "$FILE" ]; then
     bash .tmp/bem/pattern/superuser/apt.sh
     touch $FILE
