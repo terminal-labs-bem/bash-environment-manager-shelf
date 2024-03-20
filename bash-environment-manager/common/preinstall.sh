@@ -22,3 +22,12 @@ EOF
 bash .tmp/bem/helpers/setup_vars_common.sh $APPNAME $SUDOUSERNAME $CONFIGURATION $TYPE $PYTHONVERSION $HOSTTYPE $INTERNALUSER $PLATFORM $PLUGIN $EXTRA
 bash .tmp/bem/helpers/setup_vars_external.sh $APPNAME $SUDOUSERNAME $CONFIGURATION $TYPE $PYTHONVERSION $HOSTTYPE $INTERNALUSER $PLATFORM $PLUGIN $EXTRA
 bash .tmp/bem/helpers/setup_vars_internal.sh $APPNAME vagrant $CONFIGURATION $TYPE $PYTHONVERSION $HOSTTYPE vagrant $PLATFORM $PLUGIN $EXTRA
+
+
+if [[ $HOSTTYPE == "host" ]]; then
+  bash .tmp/bem/common/hosts/raw/deploy.sh $SUDOUSERNAME
+fi
+
+if [[ $HOSTTYPE == "vagrant" ]]; then
+  bash .tmp/bem/common/hosts/vm/deploy.sh $SUDOUSERNAME
+fi

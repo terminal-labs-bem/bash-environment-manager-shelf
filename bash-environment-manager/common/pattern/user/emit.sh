@@ -5,4 +5,4 @@ echo "emitting"
 
 source /home/$INSTALLUSER/.tlcache/bem/$APPNAME/venv/bin/activate
 
-bash .tmp/bem/pattern/user/emitters/emit_activate.sh $INSTALLUSER
+bash .tmp/bem/common/pattern/user/emitters/emit_activate.sh $INSTALLUSER

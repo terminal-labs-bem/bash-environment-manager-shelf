@@ -8,14 +8,9 @@ git clone git@github.com:terminal-labs-bem/lowkit.git
 git clone git@github.com:terminal-labs-bem/highkit.git
 git clone git@github.com:terminal-labs-bem/factory.git
 
-cd lowkit
-sudo make venv.python
-cd ..
+
 
 cd highkit
-sudo make venv.python
-cd ..
-
-cd factory
-sudo make venv.python
+sudo make vm.venv.python
+vagrant destroy -f
 cd ..
