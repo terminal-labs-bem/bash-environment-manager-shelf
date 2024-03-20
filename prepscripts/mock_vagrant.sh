@@ -7,6 +7,9 @@ rm -rf /var/lib/update-notifier
 rm -rf /var/lib/ubuntu-release-upgrader
 apt-get purge --auto-remove ubuntu-advantage-tools -y
 
+apt remove firefox -y
+apt-get purge --auto-remove firefox -y
+
 adduser --disabled-password --gecos "" vagrant
 touch /home/vagrant/.bashrc
 usermod -aG sudo vagrant
