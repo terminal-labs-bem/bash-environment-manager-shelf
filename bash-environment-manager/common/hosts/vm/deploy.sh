@@ -11,5 +11,5 @@ fi
 sudo su $INSTALLUSER <<'EOF'
  source .tmp/_commonenv.sh
  vagrant up
- vagrant ssh --command "cd /vagrant; sudo bash .tmp/patterns/$PLUGIN/superuser/setup.sh vagrant"
+ vagrant ssh --command "cd /vagrant; sudo bash .tmp/bem/pattern/superuser/setup.sh vagrant"
 EOF

@@ -12,10 +12,10 @@ export EXTRA=${10}
 source .tmp/bem/library/lib.sh
 
 if [[ $HOSTTYPE == "host" ]]; then
-  bash .tmp/bem/common/hosts/standard/deploy.sh $SUDOUSERNAME
+  bash .tmp/bem/common/hosts/raw/deploy.sh $SUDOUSERNAME
 fi
 
 if [[ $HOSTTYPE == "vagrant" ]]; then
-  bash .tmp/bem/common/hosts/vagrant/deploy.sh $SUDOUSERNAME
-  bash .tmp/bem/common/hosts/vagrant/post_deploy_run.sh $SUDOUSERNAME
+  bash .tmp/bem/common/hosts/vm/deploy.sh $SUDOUSERNAME
+  bash .tmp/bem/common/hosts/vm/post_deploy_run.sh $SUDOUSERNAME
 fi

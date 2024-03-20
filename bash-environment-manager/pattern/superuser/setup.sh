@@ -7,7 +7,7 @@ chown -R $INSTALLUSER $FILE /home/$INSTALLUSER/.tlcache
 
 FILE=/home/$INSTALLUSER/.tlcache/bem/$APPNAME/vars/patternaptdeps
 if [ ! -f "$FILE" ]; then
-    bash .tmp/patterns/$PLUGIN/superuser/apt.sh
+    bash .tmp/bem/pattern/superuser/apt.sh
     touch $FILE
     chown $INSTALLUSER $FILE
 fi
@@ -15,6 +15,6 @@ fi
 sudo su $INSTALLUSER <<'EOF'
   source .tmp/_commonenv.sh
   me="$(whoami)"
-  bash .tmp/patterns/$PLUGIN/user/stage.sh $me
-  bash .tmp/patterns/$PLUGIN/user/emit.sh $me
+  bash .tmp/bem/pattern/user/stage.sh $me
+  bash .tmp/bem/pattern/user/emit.sh $me
 EOF

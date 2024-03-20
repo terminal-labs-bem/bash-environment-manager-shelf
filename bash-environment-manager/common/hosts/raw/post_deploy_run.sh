@@ -3,5 +3,5 @@ source .tmp/_commonenv.sh
 
 sudo su $INSTALLUSER <<'EOF'
  source .tmp/_commonenv.sh
- bash .tmp/patterns/$PLUGIN/user/run.sh user
+ bash .tmp/bem/pattern/user/run.sh user
 EOF
