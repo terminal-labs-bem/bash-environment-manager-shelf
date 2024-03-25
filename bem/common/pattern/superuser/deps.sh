@@ -1,32 +1,15 @@
 DEBIAN_FRONTEND=noninteractive
+echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
+sudo apt-get install -y -q
 
-apt -y install \
-  git \
-  wget \
-  zip \
-  unzip \
-  rsync \
-  bash-completion \
-  build-essential \
-  cmake \
-  make \
-  libpq-dev \
-  libcurl4  \
-  libcurl4-openssl-dev  \
-  libssl-dev  \
-  libxml2 \
-  libxml2-dev  \
-  pkg-config \
-  ca-certificates \
-  xclip
+if [  -n "$(uname -a | grep Ubuntu)" ]; then
+	apt-get update
+	apt-get install software-properties-common -y
+	add-apt-repository ppa:deadsnakes/ppa -y
+else
+    apt-get update
+fi 
 
-cd .tmp
-wget http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2_amd64.deb
-dpkg -i libssl1.1_1.1.1f-1ubuntu2_amd64.deb
-rm libssl1.1_1.1.1f-1ubuntu2_amd64.deb
-cd ..
-
-add-apt-repository ppa:deadsnakes/ppa -y
-apt-get update -y
+apt-get update
 apt-get install python3.11 -y
 apt-get install python3.11-venv -y
