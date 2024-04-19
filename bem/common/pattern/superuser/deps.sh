@@ -11,5 +11,7 @@ else
 fi 
 
 apt-get update
+apt-get install curl -y
 apt-get install python3.11 -y
 apt-get install python3.11-venv -y
+apt-get install git -y

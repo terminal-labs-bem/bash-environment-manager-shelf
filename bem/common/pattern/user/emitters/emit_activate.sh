@@ -6,6 +6,6 @@ if [ $INSTALLUSER == "vagrant" ]; then
 else
   echo "creating activate script"
 cat > activate.sh <<EOF
-source /home/$INSTALLUSER/.tlcache/bem/$APPNAME/venv/bin/activate
+source .venv/bin/activate
 EOF
 fi
